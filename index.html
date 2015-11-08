@@ -162,34 +162,42 @@
 		  })
 		  .interpolate("basis"); 
 
-		  var finaleskda = vis.append('svg:path')
-		  .attr('d', kdaGen(finales))
-		  .attr('stroke', 'yellow')
-		  .attr('stroke-width', 2)
-		  .attr('fill', 'none');   
+		  // var finaleskda = vis.append('svg:path')
+		  // .attr('d', kdaGen(finales))
+		  // .attr('stroke', 'yellow')
+		  // .attr('stroke-width', 2)
+		  // .attr('fill', 'none');   
 
 		 var larrykda = vis.append('svg:path')
+		 .attr("class", "larrykda")
 		  .attr('d', kdaGen(xglarryxg))
 		  .attr('stroke', 'purple')
 		  .attr('stroke-width', 2)
 		  .attr('fill', 'none'); 
 
-		 var finales = vis.append('svg:path')
-		  .attr('d', lineGen(finales))
-		  .attr('stroke', 'blue')
-		  .attr('stroke-width', 2)
-		  .attr('fill', 'none');
+		 // var finales = vis.append('svg:path')
+		 //  .attr('d', lineGen(finales))
+		 //  .attr('stroke', 'blue')
+		 //  .attr('stroke-width', 2)
+		 //  .attr('fill', 'none');
 
 		 var larry = vis.append('svg:path')
+		 .attr("class", "larry")
 		  .attr('d', lineGen(xglarryxg))
 		  .attr('stroke', 'red')
 		  .attr('stroke-width', 2)
 		  .attr('fill', 'none');
 
 		 $("#button").on("click", function(){
-		 	larrykda
+		 	d3.select(".larrykda")
 		 	.transition()
+		 	.duration(400)
 		 	.attr('d', kdaGen(finales));
+
+		 	d3.select(".larry")
+		 	.transition()
+		 	.duration(400)
+		 	.attr('d', lineGen(finales));
 		 });
 
 	</script>
