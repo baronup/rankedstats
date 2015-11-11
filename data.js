@@ -29,6 +29,9 @@ var finales = [{lpchange:17,kills:10,deaths:0,assists:11
 },{lpchange:-18,kills:6,deaths:8,assists:7
 },{lpchange:-19,kills:6,deaths:4,assists:7
 }];
+
+finales.reverse();
+
 var xglarryxg = [{lpchange:21,kills:5,deaths:4,assists:10
 },{lpchange:-15,kills:5,deaths:6,assists:8
 },{lpchange:-17,kills:1,deaths:7,assists:8
@@ -60,3 +63,5 @@ var xglarryxg = [{lpchange:21,kills:5,deaths:4,assists:10
 },{lpchange:18,kills:5,deaths:5,assists:12
 },{lpchange:-18,kills:9,deaths:10,assists:7
 }];
+
+xglarryxg.reverse();

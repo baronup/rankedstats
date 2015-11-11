@@ -22,14 +22,25 @@
 
 		.axis path {
 		    fill: none;
-		    stroke: black;
 		    shape-rendering: crispEdges;
 		}
 
 		.axis text {
 		    font-family: Tahoma, Geneva, sans-serif;
 		    font-size: 13px;
-		}		
+		}
+
+		.lpchange path{
+			stroke: red;
+		}	
+
+		.kdachange path{
+			stroke: purple;
+		}
+
+		.games path{
+			stroke: black;
+		}
 	</style>
 </head>
 <body>
@@ -75,9 +86,9 @@
 		};
 
 
-		xScale = d3.scale.linear().range([margins.left, width - margins.right]).domain([30, 1]);
+		xScale = d3.scale.linear().range([margins.left, width - margins.right]).domain([1, 30]);
 
-		yScale = d3.scale.linear().range([height - margins.top, margins.bottom]).domain([-100, 100]);
+		yScale = d3.scale.linear().range([height - margins.top, margins.bottom]).domain([-200, 200]);
 
 		zScale = d3.scale.linear().range([height - margins.top, margins.bottom]).domain([0, 25]);
 
@@ -119,17 +130,17 @@
 
 
 	    vis.append("svg:g")
-	    .attr("class","axis")
+	    .attr("class","axis games")
 	    .attr("transform", "translate(0," + (height - margins.bottom) + ")")
 	    .call(xAxis);	
 	    
 	    vis.append("svg:g")
-	    .attr("class","axis")
+	    .attr("class","axis lpchange")
 	    .attr("transform", "translate(" + (margins.left) + ",0)")
 	    .call(yAxis);
 
 	    vis.append("svg:g")
-	    .attr("class","axis")
+	    .attr("class","axis kdachange")
 	    .attr("transform", "translate(" + (width - margins.right) + ",0)")
 	    .call(zAxis);
 
