@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ranked Stats Calculator</title>
+	<title>Ranked Stats Visualization</title>
 	<link rel="stylesheet" href="css/foundation.css">
 
   	<script src="js/vendor/modernizr.js"></script>
@@ -52,7 +52,8 @@
 
 		<div id="middlebody">
 			<h1 id="title">Ranked Stats and KDA Visualization</h1>
-			<button id="button">BUTTON</button>
+			<button id="finales">Finales Stats</button>
+			<button id="larry">XGLarryXG Stats</button>
 		</div>		
 	</div>
 
@@ -169,7 +170,7 @@
 		  // .attr('fill', 'none');   
 
 		 var larrykda = vis.append('svg:path')
-		 .attr("class", "larrykda")
+		 .attr("class", "kda")
 		  .attr('d', kdaGen(xglarryxg))
 		  .attr('stroke', 'purple')
 		  .attr('stroke-width', 2)
@@ -182,23 +183,35 @@
 		 //  .attr('fill', 'none');
 
 		 var larry = vis.append('svg:path')
-		 .attr("class", "larry")
+		 .attr("class", "lp")
 		  .attr('d', lineGen(xglarryxg))
 		  .attr('stroke', 'red')
 		  .attr('stroke-width', 2)
 		  .attr('fill', 'none');
 
-		 $("#button").on("click", function(){
-		 	d3.select(".larrykda")
+		 $("#finales").on("click", function(){
+		 	d3.select(".kda")
 		 	.transition()
-		 	.duration(400)
+		 	.duration(500)
 		 	.attr('d', kdaGen(finales));
 
-		 	d3.select(".larry")
+		 	d3.select(".lp")
 		 	.transition()
-		 	.duration(400)
+		 	.duration(500)
 		 	.attr('d', lineGen(finales));
 		 });
+
+		 $("#larry").on("click", function(){
+		 	d3.select(".kda")
+		 	.transition()
+		 	.duration(500)
+		 	.attr('d', kdaGen(xglarryxg))
+
+		 	d3.select(".lp")
+		 	.transition()
+		 	.duration(500)
+		 	.attr('d', lineGen(xglarryxg));
+		 })
 
 	</script>
 </body>
